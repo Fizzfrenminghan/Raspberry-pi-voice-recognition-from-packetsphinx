@@ -90,4 +90,11 @@ back
 
 存檔後再執行make重新編譯continuous.c再建立一個 pocketsphinx_continuous新版本，可能有權限的問題，屆時要執行時前方再加sudo
 
+reference: 
+           http://www.raspberrypi-spy.co.uk/2013/01/cheap-pir-sensors-and-the-raspberry-pi-part-1/
+
+video: 
+           https://www.youtube.com/watch?v=EucxVToC58E&hd=1
+           https://www.youtube.com/watch?v=2K2-8GRhIvw&hd=1
+
 
