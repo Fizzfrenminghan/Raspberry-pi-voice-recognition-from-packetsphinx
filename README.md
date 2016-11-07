@@ -1,17 +1,17 @@
 # Raspberry-pi-voice-recognition-from-packetsphinx
-First $ sudo -i    go to root且SD卡的imag為原生Debian Wheezy,且先不要插入usb音效裝置
+First $ sudo -i    go to root且SD卡的imag為原生Debian Wheezy,且先不要插入usb音效裝置                                                        
 
-1.# apt-get update
-  # apt-get upgrade
-2.# wget http://goo.gl/1BOfJ -O /usr/bin/rpi-update && chmod +x /usr/bin/rpi-update
-  # apt-get install git-core
-  # sudo rpi-update
-  plug in your usb audio adapter 插入usb音效裝置
-  # cat /proc/asound/cards
-  # cat /proc/asound/modules
+1.# apt-get update                                                                                                           
+  # apt-get upgrade                                                                                                                                          
+2.# wget http://goo.gl/1BOfJ -O /usr/bin/rpi-update && chmod +x /usr/bin/rpi-update                                         
+  # apt-get install git-core                                                                                                 
+  # sudo rpi-update                                                                                                         
+  plug in your usb audio adapter 插入usb音效裝置                                                                               
+  # cat /proc/asound/cards                                                                                                   
+  # cat /proc/asound/modules                                                                                                  
   
-3.# nano /etc/modprobe.d/alsa-base.conf
-    更改/etc/modprobe.d/alsa-base.conf裡的 
+3.# nano /etc/modprobe.d/alsa-base.conf                                                                                     
+    更改/etc/modprobe.d/alsa-base.conf裡的                                                                                     
     options snd-usb-audio index=-2 改成 options snd-usb-audio index=0
     存檔後
   # alsa force-reload 強制重新載入ALSA
