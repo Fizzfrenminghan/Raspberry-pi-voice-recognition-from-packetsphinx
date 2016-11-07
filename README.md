@@ -93,17 +93,29 @@ back
 如：
 
    if (hyp) {
+   
             sscanf(hyp, "%s", word);
+            
             if (strcmp(hyp, "GOODBYE") == 0)
+            
                {
+               
                 system("espeak \"good bye\"");
+                
                 break;
+                
                }
+               
             else if (strcmp(hyp, "LEFT") == 0)
+            
                {
+               
                 system("/home/pi/gpio/servol.py");
+                
                }
+               
             }
+            
             
 
 存檔後再執行make重新編譯continuous.c再建立一個 pocketsphinx_continuous新版本，可能有權限的問題，屆時要執行時前方再加sudo
