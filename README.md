@@ -10,14 +10,21 @@ First $ sudo -i    go to root且SD卡的imag為原生Debian Wheezy,且先不要�
   # cat /proc/asound/cards                                                                                                   
   # cat /proc/asound/modules                                                                                                  
   
-3.# nano /etc/modprobe.d/alsa-base.conf                                                                                     
-    更改/etc/modprobe.d/alsa-base.conf裡的                                                                                     
+3.# nano /etc/modprobe.d/alsa-base.conf                                                                               
+
+    更改/etc/modprobe.d/alsa-base.conf裡的     
+    
     options snd-usb-audio index=-2 改成 options snd-usb-audio index=0
     存檔後
+    
   # alsa force-reload 強制重新載入ALSA
+  
   # arecord -d 5 -r 48000 test.wav   To record 5secs sound test mic
+  
   # aplay test.wav
+  
   # alsamixer   Adjust input/output levele 
+  
 4.重要是要先安裝下面ALSA開發套件,不可先安裝sphinxbase,不然sphinxbase仍無法使用ALSA
   # apt-get install bison
   # apt-get install libasound2-dev
