@@ -28,25 +28,32 @@ First $ sudo -i    go to root且SD卡的imag為原生Debian Wheezy,且先不要�
 4.重要是要先安裝下面ALSA開發套件,不可先安裝sphinxbase,不然sphinxbase仍無法使用ALSA
   # apt-get install bison
   # apt-get install libasound2-dev
+  
 5.安裝sphinxbase
-  # cd ../home/pi/sphinxbase-0.8/ 
+  # cd ../home/pi/sphinxbase-0.8/
   # ./configure --enable-fixed
   # make
   # make install
+  
   
 6.安裝pocketsphinx
   # cd ../pocketsphinx-0.8/
   # ./configure
   # make
   # make install
+  
 7.# src/programs/pocketsphinx_continuous -samprate 12000  執行測試
 
+
 ready....
+
  
 
 8.若無法執行則先run下方的path
 # export LD_LIBRARY_PATH=/usr/local/lib
 # export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+
+
 
 為提高辨識精度可以限制字詞：
 例如先建立一個mark.txt(中文字一樣) :
@@ -63,6 +70,7 @@ left
 back
 
 
+
 然後開啟瀏覽器到此網址：http://www.speech.cs.cmu.edu/tools/lmtool-new.html
 在Upload a sentence corpus file: 下方選擇檔案，選擇剛建立的mark.txt
 再按COMPILE KNOWLEDGE BASE 跳出一個視窗再下載其中的例如：TAR7737.tga檔到 /pocketsphinx-0.8/src/programs裡
@@ -73,10 +81,12 @@ back
 (然後到/home/pi/pocketsphinx-0.8/model/hmm/zh裡複製tdt_sc_8k資料夾到pocketsphinx_continuous同目錄)
 
 
+
 在終端機輸入
 ./pocketsphinx_continuous -lm 7737.lm -dict 7737.dic
 然後只辨識mark.txt裡的十個字
 (中文辨識則輸入./pocketsphinx_continuous -hmm tdt_sc_8k -lm 3829.lm -dict 3829.dic)
+
 
 若要執行自己的bash或python指令，則修改continuous.c裡的/* Exit if the first word spoken was GOODBYE */ 判斷式
 
@@ -94,14 +104,21 @@ back
                 system("/home/pi/gpio/servol.py");
                }
             }
+            
 
 存檔後再執行make重新編譯continuous.c再建立一個 pocketsphinx_continuous新版本，可能有權限的問題，屆時要執行時前方再加sudo
 
-reference: 
-           http://www.raspberrypi-spy.co.uk/2013/01/cheap-pir-sensors-and-the-raspberry-pi-part-1/
 
-video: 
+reference: 
+
+           http://www.raspberrypi-spy.co.uk/2013/01/cheap-pir-sensors-and-the-raspberry-pi-part-1/
+           
+
+video:
+
            https://www.youtube.com/watch?v=EucxVToC58E&hd=1
+           
            https://www.youtube.com/watch?v=2K2-8GRhIvw&hd=1
+           
 
 
